@@ -6,15 +6,21 @@
    http://www.springframework.org/schema/context 
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+	<bean id="addr" class="com.bhimsen.Address">
+		<property name="city" value="Bangalore" />
+		<property name="state" value="Karnatka" />
+		<property name="zipCode" value="560102" />
+	</bean>
 	<bean id="emp1" class="com.bhimsen.Employee">
 		<property name="eid" value="100"></property>
 		<property name="ename" value="Bhimsen Garg"></property>
 		<property name="esalary" value="20000"></property>
+		<constructor-arg ref="addr"></constructor-arg>   <!-- constructor injection -->
 	</bean>
-
 	<bean id="emp2" class="com.bhimsen.Employee">
 		<property name="eid" value="200"></property>
 		<property name="ename" value="Rajat"></property>
 		<property name="esalary" value="60000"></property>
+		<property name="address" ref="addr"></property>  <!-- setter injection -->
 	</bean>
 </beans>
